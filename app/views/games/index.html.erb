@@ -1,0 +1,38 @@
+<html>
+<body>
+<%- model_class = Game.new.class -%>
+<table class="table table-striepd">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:start_time) %></th>
+      <th><%= model_class.human_attribute_name(:end_time) %></th>
+      <th><%= model_class.human_attribute_name(:game_type) %></th>
+      <th><%= model_class.human_attribute_name(:earned) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.start_date.strftime('%B %e, %Y') %></td>
+        <td><%= game.start_time.strftime('%I:%M %p') %></td>
+        <td><%= game.end_time.strftime('%I:%M %p') %></td>
+        <td><%= game.game_type %></td>
+        <td><%= number_to_currency(game.earned) %></td>
+        <td><%= game.notes %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_game_path(game), :class => 'btn btn-mini' %>
+          <%= link_to 'Delete', game_path(game), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+    new_game_path,
+    :class => 'btn btn-primary' %>
+</body>
+</html>

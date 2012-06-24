@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2012-06-23
+  start_time: 2012-06-23 14:48:52
+  end_time: 2012-06-23 14:48:52
+  earned: 9.99
+  notes: MyText
+
+two:
+  start_date: 2012-06-23
+  start_time: 2012-06-23 14:48:52
+  end_time: 2012-06-23 14:48:52
+  earned: 9.99
+  notes: MyText
