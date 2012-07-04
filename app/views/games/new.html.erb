@@ -1,14 +1,13 @@
 <html>
 <body>
 <%= form_for(@game) do |form| %>
-  <p>Start Date: <%= form.hidden_field :start_date %>
-      <%= text_field_tag :start_date_display %>
+  <p>Start Date: <%= form.hidden_field :start_date %><%= text_field_tag :start_date_display %>
   <p>Start Time: <%= form.text_field :start_time %>
   <p>End Time: <%= form.text_field :end_time %>
   <p>Earnings: <%= form.text_field :earned %>
   <p>Game Type: <%= select(:game, :game_type, Game::GameTypes) %>
   <p>Notes: <%= form.text_field :notes %>
-  <p><%= form.submit "Submit" %>
+  <p><%= form.submit "Submit" %></div>
 <% end %>
 </body>
 </html>
