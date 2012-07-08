@@ -1,0 +1,20 @@
+<div id="games_chart" style"width: 560px; height: 300px;"></div>
+<%= javascript_include_tag "application", "highcharts" %>
+<table class="pretty">
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+  new Highcharts.Chart({
+    chart: { renderTo: 'games_chart' },
+    title: { text: 'Games by Day' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Dollars'}
+    },
+    series: [{ 
+    data: [ <%= @games.map(&:earned).join(', ') %>]
+      }]
+});
+})
+</script>
+</table>
+

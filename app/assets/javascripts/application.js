@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require twitter/bootstrap
+//= require highcharts
 //= require_tree .
 
 $(document).ready(function(){

@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'therubyracer'
 gem 'clearance'
-#gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'highcharts-rails'
+
+
 group :production do
   gem 'pg'
 end
