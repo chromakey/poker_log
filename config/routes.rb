@@ -1,8 +1,8 @@
 PokerLog::Application.routes.draw do
   root to: 'games#index'
+  match 'charts' => 'charts#index'
   resources :users
   resources :games
-  resources :charts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
