@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120703232401) do
+ActiveRecord::Schema.define(:version => 20120708143557) do
 
   create_table "games", :force => true do |t|
     t.date     "start_date"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(:version => 20120703232401) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "game_type"
+    t.integer  "user_id"
   end
+
+  add_index "games", ["user_id"], :name => "index_games_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

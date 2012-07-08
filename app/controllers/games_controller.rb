@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.where(user_id:current_user.id)
     @game = Game.new
   end
 
@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   
   def create
     @game = Game.new(params[:game])
+    @game.user_id = current_user.id
     @game.save
     redirect_to games_url, notice: "Saved!"
   end
