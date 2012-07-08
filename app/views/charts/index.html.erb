@@ -11,6 +11,9 @@
       title: { text: 'Dollars'}
     },
     series: [{ 
+    name: "Earnings",
+    pointInterval: <%= 1.day * 1000 %>,
+    pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000  %>, 
     data: [ <%= @games.map(&:earned).join(', ') %>]
       }]
 });
