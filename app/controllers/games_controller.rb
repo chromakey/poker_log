@@ -14,6 +14,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(params[:game])
     @game.user_id = current_user.id
+    @game.time_played = ((@game.end_time - @game.start_time) / 3600 )
     @game.save
     redirect_to games_url, notice: "Saved!"
   end
