@@ -36,7 +36,11 @@
 <p><b>Total Sessions:</b> <%= current_user.games.count(:all) %></p>
 <p><b>Total Time Played:</b> <%= current_user.games.sum(:time_played) %> hours</p>
 <p><b>Total Earned:</b> <%= number_to_currency(current_user.games.sum(:earned)) %></p>
-<p><b>Hourly Rate:</b> <%= number_to_currency((current_user.games.sum(:earned) / current_user.games.sum(:time_played))) %> per hour</p>
+<% if current_user.games.sum(:time_played) < 1 %>
+  <p><b>Hourly Rate:</b> N/A </p>
+<% else %>
+  <p><b>Hourly Rate:</b> <%= number_to_currency((current_user.games.sum(:earned) / current_user.games.sum(:time_played))) %> per hour</p>
+<% end %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
     new_game_path,
